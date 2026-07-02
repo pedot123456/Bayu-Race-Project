@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Baloo 2", "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
+
+  --color-teal-950: #04302c;
+  --color-teal-900: #073f39;
+  --color-teal-800: #0b4f4a;
+  --color-teal-700: #10665f;
+  --color-teal-600: #157f76;
+  --color-teal-500: #1a9c90;
+  --color-teal-400: #2bc0b0;
+  --color-teal-300: #6fe0d2;
+  --color-teal-200: #b0eee2;
+  --color-teal-100: #e3fbf6;
+
+  --color-orange-700: #b5480f;
+  --color-orange-600: #d85a15;
+  --color-orange-500: #f2711b;
+  --color-orange-400: #ff8c3f;
+  --color-orange-300: #ffab6b;
+
+  --color-gold-700: #8a6413;
+  --color-gold-600: #b3831a;
+  --color-gold-500: #e2a824;
+  --color-gold-400: #f5c451;
+  --color-gold-300: #ffe08a;
+  --color-gold-200: #fff0c2;
+
+  --color-wood-900: #3a2416;
+  --color-wood-800: #4e3220;
+  --color-wood-700: #6b452b;
+  --color-wood-600: #8a5a37;
+  --color-wood-500: #a97445;
+
+  --color-sky-top: #ff9e4a;
+  --color-sky-mid: #ff7a4d;
+  --color-sky-bottom: #2bc0b0;
+  --color-hill-far: #2d8f6f;
+  --color-hill-near: #1f7a5c;
+
+  --animate-hill-scroll: hill-scroll 6s linear infinite;
+  --animate-hill-scroll-slow: hill-scroll 11s linear infinite;
+  --animate-wind-scroll: wind-scroll 4s linear infinite;
+  --animate-spin-slow: spin 3s linear infinite;
+  --animate-flap: flap 0.4s ease-in-out infinite;
+  --animate-flash: flash 1.6s ease-in-out infinite;
+  --animate-float: float 2.4s ease-in-out infinite;
+
+  @keyframes hill-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes wind-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes flap {
+    0%,
+    100% {
+      transform: scaleY(1) translateY(0);
+    }
+    50% {
+      transform: scaleY(0.8) translateY(-4px);
+    }
+  }
+  @keyframes flash {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    45% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+    55% {
+      opacity: 0.3;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  height: 100dvh;
+  overscroll-behavior: none;
+  background: var(--color-teal-950);
+  font-family: var(--font-body);
+}
+
+#root {
+  height: 100%;
+  height: 100dvh;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}

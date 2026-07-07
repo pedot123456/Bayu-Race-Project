@@ -1,18 +1,9 @@
-// Stylized Malaysian countryside backdrop: cinematic sun, rolling hills,
-// coconut palms and looping wind-swirl accents. `scrolling` speeds up the
-// hill/palm parallax during gameplay.
+// Stylized Malaysian countryside backdrop: rolling hills, coconut palms and
+// looping wind-swirl accents over an open sky gradient. `scrolling` speeds
+// up the hill/palm parallax during gameplay.
 export default function Environment({ scrolling = false }) {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-gradient-to-b from-sky-top via-sky-mid to-sky-bottom">
-      <div
-        className="absolute left-1/2 top-[14%] h-40 w-40 -translate-x-1/2 rounded-full bg-gold-300 blur-2xl opacity-80"
-        aria-hidden
-      />
-      <div
-        className="absolute left-1/2 top-[16%] h-24 w-24 -translate-x-1/2 rounded-full bg-gold-200"
-        aria-hidden
-      />
-
+    <div className="absolute inset-0 overflow-hidden bg-gradient-to-b from-brand-sky-top via-brand-sky-mid to-brand-sky-bottom">
       <svg
         className={`absolute bottom-[28%] left-0 w-[200%] h-24 opacity-70 ${scrolling ? 'animate-wind-scroll' : ''}`}
         viewBox="0 0 400 60"
@@ -20,35 +11,38 @@ export default function Environment({ scrolling = false }) {
         aria-hidden
       >
         <path
-          d="M0 30 Q 20 10, 40 30 T 80 30"
+          d="M0 30 Q 20 12 40 30 T 80 30 T 120 30"
           stroke="white"
-          strokeWidth="2"
+          strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
-          d="M150 20 Q 170 0, 190 20 T 230 20"
+          d="M150 18 Q 170 0 190 18 T 230 18 T 270 18"
           stroke="white"
-          strokeWidth="2"
+          strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
-          d="M280 40 Q 300 20, 320 40 T 360 40"
+          d="M280 42 Q 300 24 320 42 T 360 42 T 400 42"
           stroke="white"
-          strokeWidth="2"
+          strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
 
       <div
-        className={`absolute bottom-[18%] left-0 w-[200%] h-28 bg-hill-far rounded-t-[50%] ${scrolling ? 'animate-hill-scroll-slow' : ''}`}
+        className={`absolute bottom-[18%] left-0 w-[200%] h-28 bg-brand-hill-far rounded-t-[50%] ${scrolling ? 'animate-hill-scroll-slow' : ''}`}
         aria-hidden
       />
 
       <div
-        className={`absolute bottom-0 left-0 w-[200%] h-40 bg-hill-near rounded-t-[45%] ${scrolling ? 'animate-hill-scroll' : ''}`}
+        className={`absolute bottom-0 left-0 w-[200%] h-40 bg-brand-hill-near rounded-t-[45%] ${scrolling ? 'animate-hill-scroll' : ''}`}
         aria-hidden
       >
         {Array.from({ length: 10 }).map((_, i) => (

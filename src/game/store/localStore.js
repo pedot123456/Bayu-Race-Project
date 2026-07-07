@@ -34,5 +34,5 @@ export function addScore(teamName, score) {
   entries.sort((a, b) => b.score - a.score)
   const top = entries.slice(0, MAX_ENTRIES)
   localStorage.setItem(LEADERBOARD_KEY, JSON.stringify(top))
-  return top
+  return { entries: top, isTopScore: top[0]?.id === id }
 }

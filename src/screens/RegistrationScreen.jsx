@@ -25,37 +25,41 @@ export default function RegistrationScreen() {
 
   return (
     <div
-      className="relative w-full h-full flex flex-col items-center justify-center px-6 overflow-y-auto"
+      className="relative w-full h-full flex items-center justify-center px-[4cqmin] py-[2cqmin] overflow-y-auto"
       style={{
-        paddingTop: 'max(1.5rem, env(safe-area-inset-top))',
-        paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom))',
+        paddingTop: 'max(1.5cqmin, env(safe-area-inset-top))',
+        paddingBottom: 'max(1.5cqmin, env(safe-area-inset-bottom))',
       }}
     >
       <Environment />
 
-      <div className="relative w-full max-w-xs">
-        <h1 className="font-display text-[clamp(1.5rem,11cqw,2.25rem)] font-extrabold text-white text-center mb-6 drop-shadow-[0_3px_0_rgba(0,0,0,0.25)]">
+      <div className="relative w-full max-w-2xl">
+        <h1 className="font-display text-[clamp(1.25rem,7cqmin,2.25rem)] font-extrabold text-white text-center mb-[2cqmin] drop-shadow-[0_3px_0_rgba(0,0,0,0.25)]">
           Team Registration
         </h1>
 
         <WoodPanel>
           <form onSubmit={handleSubmit}>
-            <Input
-              label="Team Name"
-              placeholder="e.g. Wau Warriors"
-              value={teamName}
-              onChange={(e) => setTeamName(e.target.value)}
-            />
-            <Input
-              label="Captain Name"
-              placeholder="e.g. Amir Bayu"
-              value={captainName}
-              onChange={(e) => setCaptainName(e.target.value)}
-            />
-            {error && <p className="text-orange-400 text-sm mb-3 -mt-1">{error}</p>}
-            <div className="flex flex-col gap-3 mt-2">
-              <Button type="submit">Join the Race</Button>
-              <Button variant="ghost" type="button" onClick={() => navigate('/menu')}>
+            <div className="grid grid-cols-2 gap-4">
+              <Input
+                label="Team Name"
+                placeholder="e.g. Wau Warriors"
+                value={teamName}
+                onChange={(e) => setTeamName(e.target.value)}
+              />
+              <Input
+                label="Captain Name"
+                placeholder="e.g. Amir Bayu"
+                value={captainName}
+                onChange={(e) => setCaptainName(e.target.value)}
+              />
+            </div>
+            {error && <p className="text-brand-secondary-400 text-sm mb-3 -mt-1">{error}</p>}
+            <div className="flex flex-row-reverse gap-3 mt-2">
+              <Button className="flex-1" type="submit">
+                Join the Race
+              </Button>
+              <Button className="flex-1" variant="ghost" type="button" onClick={() => navigate('/menu')}>
                 Cancel
               </Button>
             </div>

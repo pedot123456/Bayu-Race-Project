@@ -2,9 +2,9 @@
 export default function WoodPanel({ children, className = '' }) {
   return (
     <div
-      className={`rounded-3xl bg-gradient-to-b from-wood-700 to-wood-800 border-4 border-gold-500 shadow-xl p-1 ${className}`}
+      className={`rounded-3xl bg-gradient-to-b from-brand-neutral-700 to-brand-neutral-800 border-4 border-brand-accent-500 shadow-xl p-1 ${className}`}
     >
-      <div className="rounded-[1.3rem] border-2 border-gold-300/40 bg-teal-900/40 p-5">
+      <div className="rounded-[1.3rem] border-2 border-brand-accent-300/40 bg-brand-primary-900/40 p-5">
         {children}
       </div>
     </div>

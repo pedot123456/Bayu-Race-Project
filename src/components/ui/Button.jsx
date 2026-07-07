@@ -1,10 +1,10 @@
 const VARIANTS = {
   primary:
-    'bg-gradient-to-b from-orange-400 to-orange-600 text-white border-gold-400',
+    'bg-gradient-to-b from-brand-secondary-400 to-brand-secondary-600 text-white border-brand-accent-400',
   secondary:
-    'bg-gradient-to-b from-teal-400 to-teal-600 text-white border-gold-400',
+    'bg-gradient-to-b from-brand-primary-400 to-brand-primary-600 text-white border-brand-accent-400',
   ghost:
-    'bg-teal-800/60 text-gold-300 border-wood-600',
+    'bg-brand-primary-800/60 text-brand-accent-300 border-brand-neutral-600',
 }
 
 export default function Button({

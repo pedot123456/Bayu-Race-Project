@@ -45,7 +45,7 @@ export default function KiteSelectScreen() {
                   onClick={() => setSelectedId(design.id)}
                   className={`flex flex-col items-center rounded-xl border-2 py-2 transition-colors ${
                     isSelected
-                      ? 'border-brand-accent-300 bg-brand-primary-950/60 shadow-[0_0_12px_rgba(245,196,81,0.6)]'
+                      ? 'border-brand-accent-300 bg-brand-primary-950/60 shadow-[0_0_12px_rgba(247,210,51,0.6)]'
                       : 'border-transparent bg-brand-primary-950/30'
                   }`}
                 >

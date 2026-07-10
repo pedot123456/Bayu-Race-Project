@@ -5,9 +5,9 @@ import Button from '../components/ui/Button.jsx'
 import { getLeaderboard } from '../game/store/localStore.js'
 
 const RANK_STYLES = [
-  'border-brand-accent-300 shadow-[0_0_18px_rgba(245,196,81,0.7)] text-brand-accent-300',
-  'border-brand-primary-300 shadow-[0_0_12px_rgba(111,224,210,0.5)] text-brand-primary-200',
-  'border-brand-secondary-400 shadow-[0_0_12px_rgba(255,140,63,0.5)] text-brand-secondary-300',
+  'border-brand-accent-300 shadow-[0_0_18px_rgba(247,210,51,0.7)] text-brand-accent-300',
+  'border-brand-primary-300 shadow-[0_0_12px_rgba(152,180,248,0.5)] text-brand-primary-200',
+  'border-brand-secondary-400 shadow-[0_0_12px_rgba(251,139,77,0.5)] text-brand-secondary-300',
 ]
 const RANK_MEDALS = ['🥇', '🥈', '🥉']
 

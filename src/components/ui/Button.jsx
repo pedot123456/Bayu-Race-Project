@@ -20,9 +20,11 @@ export default function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`font-display font-semibold text-lg px-6 py-3 rounded-2xl border-b-4 shadow-lg active:border-b-0 active:translate-y-1 transition-all disabled:opacity-40 disabled:active:translate-y-0 ${VARIANTS[variant]} ${className}`}
+      className={`relative overflow-hidden font-display font-semibold text-lg px-6 py-3 rounded-2xl border-b-4 shadow-lg active:border-b-0 active:translate-y-1 transition-all disabled:opacity-40 disabled:active:translate-y-0 ${VARIANTS[variant]} ${className}`}
     >
-      {children}
+      {/* Faint Batik-wave texture behind the label - see index.css. */}
+      <span className="absolute inset-0 bg-pattern-batik pointer-events-none" aria-hidden />
+      <span className="relative">{children}</span>
     </button>
   )
 }

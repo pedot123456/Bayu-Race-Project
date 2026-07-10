@@ -1,59 +1,64 @@
 @import "tailwindcss";
 
 /* =========================================================================
-   BAYURI BRAND PALETTE - PLACEHOLDER HEX VALUES
+   BAYURI BRAND PALETTE - VIBRANT YELLOW / PURPLE / BLUE / ORANGE
    Every color the game/UI uses is driven from this block. Swap the hex
-   values below for Bayuri's official brand colors and the whole app
-   (screens, buttons, panels, environment, HUD) re-themes automatically -
-   no other file needs to change.
+   values below to retune the app (screens, buttons, panels, environment,
+   HUD) - no other file needs to change for a pure re-theme.
 
    Scale convention: -900/-950 = darkest shade, -100/-200 = lightest tint.
-   brand-primary   -> main team color (was teal)
-   brand-secondary -> action/energy color, used on primary buttons (was orange)
-   brand-accent    -> highlight/gold trim color, used on borders & text (was gold)
-   brand-neutral   -> wood/frame color for panels & HUD chrome (was wood)
-   brand-sky-*     -> backdrop gradient stops
-   brand-hill-*    -> parallax terrain silhouettes
+   brand-primary   -> main team color, now BLUE (was teal)
+   brand-secondary -> action/energy color on primary buttons, ORANGE (unchanged hue, revived)
+   brand-accent    -> highlight/trim color on borders & text, now YELLOW (was gold)
+   brand-neutral   -> frame color for panels & HUD chrome, now PURPLE (was wood brown)
+   brand-sky-*     -> backdrop gradient stops (orange -> purple -> blue sunset)
+   brand-hill-*    -> parallax terrain silhouettes, deep purple
+
+   Note: src/game/kiteDesigns.js and a few glow/shadow rgba() literals
+   mirror specific shades from this palette by literal hex/rgb value
+   (SVG fills and box-shadows can't reference CSS custom properties the
+   same way Tailwind classes do) - if you retune these swatches, grep
+   those files for the old hex/rgb to keep everything in sync.
    ========================================================================= */
 @theme {
   --font-display: "Baloo 2", "Poppins", sans-serif;
   --font-body: "Poppins", sans-serif;
 
-  --color-brand-primary-950: #04302c;
-  --color-brand-primary-900: #073f39;
-  --color-brand-primary-800: #0b4f4a;
-  --color-brand-primary-700: #10665f;
-  --color-brand-primary-600: #157f76;
-  --color-brand-primary-500: #1a9c90;
-  --color-brand-primary-400: #2bc0b0;
-  --color-brand-primary-300: #6fe0d2;
-  --color-brand-primary-200: #b0eee2;
-  --color-brand-primary-100: #e3fbf6;
+  --color-brand-primary-950: #0a1130;
+  --color-brand-primary-900: #101c4d;
+  --color-brand-primary-800: #182a73;
+  --color-brand-primary-700: #1f3d9c;
+  --color-brand-primary-600: #2554c9;
+  --color-brand-primary-500: #3b6ef2;
+  --color-brand-primary-400: #6a92f5;
+  --color-brand-primary-300: #98b4f8;
+  --color-brand-primary-200: #c3d3fb;
+  --color-brand-primary-100: #e4ebfd;
 
-  --color-brand-secondary-700: #b5480f;
-  --color-brand-secondary-600: #d85a15;
-  --color-brand-secondary-500: #f2711b;
-  --color-brand-secondary-400: #ff8c3f;
-  --color-brand-secondary-300: #ffab6b;
+  --color-brand-secondary-700: #9a3a0a;
+  --color-brand-secondary-600: #c94e0f;
+  --color-brand-secondary-500: #f2661b;
+  --color-brand-secondary-400: #fb8b4d;
+  --color-brand-secondary-300: #fdb17e;
 
-  --color-brand-accent-700: #8a6413;
-  --color-brand-accent-600: #b3831a;
-  --color-brand-accent-500: #e2a824;
-  --color-brand-accent-400: #f5c451;
-  --color-brand-accent-300: #ffe08a;
-  --color-brand-accent-200: #fff0c2;
+  --color-brand-accent-700: #8a6d05;
+  --color-brand-accent-600: #b3910a;
+  --color-brand-accent-500: #e0b813;
+  --color-brand-accent-400: #f7d233;
+  --color-brand-accent-300: #fbe066;
+  --color-brand-accent-200: #fef1b0;
 
-  --color-brand-neutral-900: #3a2416;
-  --color-brand-neutral-800: #4e3220;
-  --color-brand-neutral-700: #6b452b;
-  --color-brand-neutral-600: #8a5a37;
-  --color-brand-neutral-500: #a97445;
+  --color-brand-neutral-900: #241b4d;
+  --color-brand-neutral-800: #362a6e;
+  --color-brand-neutral-700: #4a3a92;
+  --color-brand-neutral-600: #5f4bb0;
+  --color-brand-neutral-500: #7a63c9;
 
-  --color-brand-sky-top: #ff9e4a;
-  --color-brand-sky-mid: #ff7a4d;
-  --color-brand-sky-bottom: #2bc0b0;
-  --color-brand-hill-far: #2d8f6f;
-  --color-brand-hill-near: #1f7a5c;
+  --color-brand-sky-top: #f2661b;
+  --color-brand-sky-mid: #7a3fb8;
+  --color-brand-sky-bottom: #3b6ef2;
+  --color-brand-hill-far: #5f4bb0;
+  --color-brand-hill-near: #362a6e;
 
   --animate-hill-scroll: hill-scroll 6s linear infinite;
   --animate-hill-scroll-slow: hill-scroll 11s linear infinite;
@@ -227,4 +232,30 @@ body {
   .portrait-rotate-hint {
     display: flex;
   }
+}
+
+/* =========================================================================
+   SONGKET & BATIK TEXTURE OVERLAYS
+   Two seamless, tileable SVG motifs referencing traditional Malaysian
+   textile patterns - a Songket-style diamond/dot lattice (metallic-thread
+   weaving) and a Batik-style flowing wave ("parang") line. Both bake a low
+   stroke/fill opacity directly into the SVG, so they read as texture, not
+   as a competing pattern.
+
+   Usage: absolutely-position a `pointer-events-none` div with one of these
+   classes as a sibling BETWEEN a container's solid/gradient background and
+   its text content (i.e. after the background, before the text, both as
+   later siblings so they paint on top of the background but the text stays
+   in its own `relative z-10` layer on top of the pattern). See
+   WoodPanel.jsx and Button.jsx for the pattern this assumes. Never place
+   text directly inside the pattern layer itself.
+   ========================================================================= */
+.bg-pattern-songket {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23F7D233' stroke-width='1' stroke-opacity='0.35'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%23F7D233' fill-opacity='0.35'/%3E%3Ccircle cx='0' cy='0' r='1.5' fill='%23F7D233' fill-opacity='0.22'/%3E%3Ccircle cx='40' cy='0' r='1.5' fill='%23F7D233' fill-opacity='0.22'/%3E%3Ccircle cx='0' cy='40' r='1.5' fill='%23F7D233' fill-opacity='0.22'/%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23F7D233' fill-opacity='0.22'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+.bg-pattern-batik {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30 Q15 10 30 30 T60 30' fill='none' stroke='%23F2661B' stroke-width='1.2' stroke-opacity='0.22'/%3E%3Cpath d='M0 48 Q15 28 30 48 T60 48' fill='none' stroke='%23F2661B' stroke-width='1.2' stroke-opacity='0.16'/%3E%3Cpath d='M0 12 Q15 -8 30 12 T60 12' fill='none' stroke='%23F2661B' stroke-width='1.2' stroke-opacity='0.16'/%3E%3C/svg%3E");
+  background-repeat: repeat;
 }

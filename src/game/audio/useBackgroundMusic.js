@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 
-// "Against the Rising Wind" - see public/audio/README.txt if you ever swap
-// this for a different track.
-const MUSIC_SRC = '/audio/against-the-rising-wind.mp3'
+// "KRAMAKALA" (Epic Cinematic Gamelan Nusantara) - see public/audio/README.txt
+// if you ever swap this for a different track. encodeURI escapes the
+// filename's spaces/parentheses into a valid URL - the file on disk keeps
+// its exact original name.
+const MUSIC_SRC = encodeURI(
+  '/audio/KRAMAKALA (BACKSOUND GAMELAN NUSANTARA ) - Epic Cinematic Gamelan Nusantara.mp3',
+)
 
 // Tuned to sit under the SFX and dialogue-weight UI copy rather than
 // dominate: loud enough to read as "there's music" on a booth speaker,

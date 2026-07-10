@@ -8,6 +8,7 @@ export default function Player({ hit = false, design = KITE_DESIGNS[0], classNam
   const uid = useId()
   const bodyGradId = `kiteBody-${uid}`
   const accentGradId = `kiteAccent-${uid}`
+  const weaveId = `kiteWeave-${uid}`
 
   return (
     <div
@@ -25,6 +26,17 @@ export default function Player({ hit = false, design = KITE_DESIGNS[0], classNam
             <stop offset="0%" stopColor={design.accentFrom} />
             <stop offset="100%" stopColor={design.accentTo} />
           </linearGradient>
+          {/* Songket-inspired woven diamond lattice, tinted with this
+              kite's own outline color so it varies design to design. */}
+          <pattern id={weaveId} width="14" height="14" patternUnits="userSpaceOnUse">
+            <path
+              d="M7 0 L14 7 L7 14 L0 7 Z"
+              fill="none"
+              stroke={design.outline}
+              strokeWidth="1"
+              strokeOpacity="0.4"
+            />
+          </pattern>
         </defs>
 
         <path
@@ -33,6 +45,7 @@ export default function Player({ hit = false, design = KITE_DESIGNS[0], classNam
           stroke={design.outline}
           strokeWidth="3"
         />
+        <path d="M50 4 L92 55 L50 122 L8 55 Z" fill={`url(#${weaveId})`} opacity="0.55" />
         <path d="M50 4 L50 122" stroke={design.outline} strokeWidth="2" opacity="0.6" />
         <path d="M8 55 L92 55" stroke={design.outline} strokeWidth="2" opacity="0.6" />
 
